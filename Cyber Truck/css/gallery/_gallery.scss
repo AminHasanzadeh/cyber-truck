@@ -1,0 +1,80 @@
+$fontBill: 'Stick No Bills';
+$fontMain: 'Space Mono';
+$primary: #071241;
+$secondary: #040114;
+$white: #ffffff;
+$grey: #8f8f8f;
+:root {
+    font-size: 16px;
+}
+#gallery {
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    perspective: 3200px;
+    > article {
+        width: 80%;
+        padding: 0 20px;
+        color: $white;
+        font-family: $fontMain;
+        text-align: center;
+        h2 {
+            font-size: 2.5rem;
+            font-family: $fontBill;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 0.9rem;
+            color: $grey;
+        }
+    }
+    >section.gal {
+        position: relative;
+        width: 100%;
+        height: 80vmin;
+        transform-style: preserve-3d;
+        padding: 40px 0;
+        transform: translateZ(-30vw) rotateY(0);
+        animation: animate 10s cubic-bezier(0.77, 0, 0.175, 1) infinite forwards;
+        > figure {
+            width: 600px;
+            height: 300px;
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 300px);
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            &:nth-of-type(1) {
+                transform: rotateY(0) translateZ(35vw);
+            }
+            &:nth-of-type(2) {
+                transform: rotateY(120deg) translateZ(35vw) ;
+            }
+            &:nth-of-type(3) {
+                transform: rotateY(240deg) translateZ(35vw);
+            }
+        }
+    }
+}
+@keyframes animate {
+	0%,  17.5%  { 
+        transform: translateZ(-35vw) rotateY(0); 
+    }
+	27.5%, 45%  { 
+        transform: translateZ(-35vw) rotateY(-120deg); 
+    }
+	55%, 72.5%  { 
+        transform: translateZ(-35vw) rotateY(-240deg); 
+    }
+	82.5%, 100% { 
+        transform: translateZ(-35vw) rotateY(-360deg); 
+    }
+}
